@@ -23,6 +23,8 @@ Browser limitation: full-screen QRIS uses a white background; websites cannot fo
 - [x] Simplified stock labels; retain report/waste corrections and main-filter trends
 - [x] Remove manual exports/resets; Google Sheets settings and durable sequential offline queue
 - [x] 76 rule tests and browser verification, including offline/reconnect and all record corrections
-- [ ] Combine expense category and inventory selection with conditional restock quantity
-- [ ] Guarantee Pengeluaran and Terbuang sheet routing and exact row schemas
+- [ ] Complete unified expense selection, conditional stock information and complete history/report details
+- [ ] Verify automatic and manual Sheets routing with exact ID-first schemas
+- [ ] Apply the supplied default webhook without overwriting a saved custom URL
+- [ ] Release manifest-only mobile installation with cow-calculator icons and matching head metadata
 - [ ] Confirm rows in owner's live Google Sheet — requires deployed Apps Script URL and access to the destination sheet; browser dispatch tested with intercepted responses only

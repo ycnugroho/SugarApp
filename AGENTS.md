@@ -20,3 +20,6 @@
 - Sheets rows use ID-first type-specific schemas (sales nine columns, expenses seven, waste six); manual sync upserts all current records, and every dispatch path clears loading in finally to prevent stale device status.
 - Keep expense restock snapshots with quantities, units and previous unit cost; corrections undo restocks atomically and reject negative inventory before changing accounting.
 - Consolidate original-milk choices only in the POS projection, preserving existing menu IDs, owner pricing and historical sales; snapshot sweetness in each new line.
+- Share expense detail rendering between expense history and reports using captured category and restock units so both preserve historical purchase information.
+- Use manifest-only installation metadata in the TanStack root head, with no app-shell service worker, because home-screen installation does not require offline caching.
+- Resolve missing device webhook configuration through one browser-safe default configuration helper, preserving nonempty owner overrides.
