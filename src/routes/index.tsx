@@ -35,7 +35,7 @@ const TABS = [
 
 function Index() {
   return (
-    <div className="app-shell mx-auto min-h-screen w-full max-w-[480px] bg-background">
+    <div className="app-shell min-h-screen w-full bg-background">
       <ClientOnly fallback={<div className="flex h-screen items-center justify-center gap-2 text-2xl font-bold text-primary"><img src="/icon-192.png" alt="" width={40} height={40} />SugarApp</div>}>
         <App />
       </ClientOnly>
@@ -61,7 +61,7 @@ function App() {
   
   return (
     <>
-      <header className="sticky top-0 z-40 flex h-20 items-center justify-between gap-2 border-b bg-card/95 px-5 backdrop-blur">
+      <header className="sticky top-0 z-40 flex h-20 w-full items-center justify-between gap-2 border-b bg-card/95 px-5 backdrop-blur">
         <div className="flex items-center gap-2.5">
           <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-card ring-1 ring-border">
             <img src="/icon-192.png" alt="SugarApp" width={48} height={48} className="h-12 w-12 object-contain" />
@@ -77,12 +77,12 @@ function App() {
         </div>
       </header>
       
-      <main className="px-5 pb-24 pt-5">
+      <main className="w-full px-5 pb-24 pt-5">
         <div className={tab === "kasir" ? "page-enter" : "hidden"}><Pos /></div>
         {tab !== "kasir" && <div key={tab} className="page-enter"><Active /></div>}
       </main>
       
-      <nav aria-label={t("Navigasi utama", "Main navigation")} className="bottom-nav fixed bottom-0 left-1/2 z-40 grid w-full max-w-[480px] -translate-x-1/2 grid-cols-5 border-t bg-card">
+      <nav aria-label={t("Navigasi utama", "Main navigation")} className="bottom-nav fixed bottom-0 left-0 z-40 grid w-full grid-cols-5 border-t bg-card">
         {TABS.map((t) => (
           <Button variant="ghost" aria-current={tab === t.id ? "page" : undefined} key={t.id} onClick={() => { setTab(t.id); window.scrollTo(0, 0); }}
             className={`h-full flex-col gap-1.5 whitespace-normal rounded-none px-0.5 text-[10px] font-medium ${tab === t.id ? "text-primary" : "text-muted-foreground"}`}>
