@@ -69,7 +69,16 @@ function App() {
     document.documentElement.lang = language; 
   }, [theme, language]);
   
-  useEffect(() => startSync(sugar), []);
+  // PERUBAHAN DI SINI: Mendaftarkan Service Worker untuk mode Offline
+  useEffect(() => {
+    startSync(sugar);
+    
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW Error:', err));
+      });
+    }
+  }, []);
   
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const revenue = sales.filter((x) => x.ts >= today.getTime()).reduce((a, x) => a + x.total, 0);
