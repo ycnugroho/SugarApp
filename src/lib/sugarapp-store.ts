@@ -1,5 +1,6 @@
 import { useSyncExternalStore } from "react";
 import { flushSync, recordEvents, type SyncEvent } from "./sugarapp-sync";
+import { configuredWebhook } from "./sugarapp-config";
 
 export type Size = "cup" | "half" | "liter";
 export type Serving = "hot" | "cold";
@@ -59,7 +60,7 @@ export function initialState(demo = true): SugarState {
     const line = makeLine(product, "cup", product.category === "mix" ? "hot" : "cold", 12 + (d * 7) % 24, 400);
     sales.push({ id: `demo-${d}`, ts: date.getTime(), method: d % 2 ? "tunai" : "qris", items: [line], total: line.sale * line.qty, cost: line.cost * line.qty, demo: true });
   }
-  return { version: 2, cupMl: 400, menu, inventory: inventoryDefaults(), sales, expenses: [], waste: [], theme: "light", language: "id", qris: "", logo: "" };
+  return { version: 2, cupMl: 400, menu, inventory: inventoryDefaults(), sales, expenses: [], waste: [], theme: "light", language: "id", qris: "", logo: "", webhookUrl: configuredWebhook() };
 }
 export function freshMenu(menu: Menu[]) { return menu.filter(p => p.category === "fresh" && !/^Susu Ori (Manis|Summer)$/.test(p.name)).map(p => p.name === "Susu Ori Tawar" ? { ...p, name: "Susu Ori" } : p); }
 export function makeLine(product: Menu, size: Size, serving: Serving, qty: number, cupMl: number, sweetness?: Sweetness): OrderLine {
@@ -143,7 +144,7 @@ function load(): SugarState {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     const saved = raw ? JSON.parse(raw) : null;
-    state = saved?.version === 2 && Array.isArray(saved.menu) && Array.isArray(saved.inventory) ? { ...saved, cupMl: 400, logo: saved.logo ?? "" } : initialState();
+    state = saved?.version === 2 && Array.isArray(saved.menu) && Array.isArray(saved.inventory) ? { ...saved, cupMl: 400, logo: saved.logo ?? "", webhookUrl: configuredWebhook(saved.webhookUrl) } : initialState();
   } catch { state = initialState(); }
   return state ?? initialState();
 }
