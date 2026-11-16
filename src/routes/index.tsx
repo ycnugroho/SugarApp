@@ -41,7 +41,7 @@ function Index() {
           <div className="flex flex-col items-center gap-4">
             <div className="flex items-center gap-2.5">
               <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-card ring-1 ring-border shadow-sm">
-                <img src="/icon-192.png" alt="SugarApp" width={48} height={48} className="h-12 w-12 object-contain" />
+                <img src="/icon1.png" alt="SugarApp" width={48} height={48} className="h-12 w-12 object-contain" />
               </span>
               <div>
                 <p className="text-xl font-bold text-foreground">Sugar<span className="text-primary">App</span></p>
@@ -79,7 +79,7 @@ function App() {
       <header className="sticky top-0 z-40 flex h-20 w-full items-center justify-between gap-2 border-b bg-card/95 px-5 backdrop-blur">
         <div className="flex items-center gap-2.5">
           <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-card ring-1 ring-border">
-            <img src="/icon-192.png" alt="SugarApp" width={48} height={48} className="h-12 w-12 object-contain" />
+            <img src="/icon1.png" alt="SugarApp" width={48} height={48} className="h-12 w-12 object-contain" />
           </span>
           <div>
             <p className="text-xl font-bold">Sugar<span className="text-primary">App</span></p>
