@@ -36,7 +36,22 @@ const TABS = [
 function Index() {
   return (
     <div className="app-shell min-h-screen w-full bg-background">
-      <ClientOnly fallback={<div className="flex h-screen items-center justify-center gap-2 text-2xl font-bold text-primary"><img src="/icon-192.png" alt="" width={40} height={40} />SugarApp</div>}>
+      <ClientOnly fallback={
+     <div className="flex h-screen w-full items-center justify-center bg-background">
+       <div className="flex flex-col items-center gap-4">
+         <div className="flex items-center gap-2.5">
+           <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-card ring-1 ring-border shadow-sm">
+             <img src="/icon-192.png" alt="SugarApp" width={48} height={48} className="h-12 w-12 object-contain" />
+           </span>
+           <div>
+             <p className="text-xl font-bold text-foreground">Sugar<span className="text-primary">App</span></p>
+             <p className="mt-0.5 text-[10px] text-muted-foreground">FRESH MILK & STMJ</p>
+           </div>
+         </div>
+         <div className="mt-4 h-6 w-6 animate-spin rounded-full border-b-2 border-primary"></div>
+       </div>
+     </div>
+   }>
         <App />
       </ClientOnly>
       <Toaster position="top-center" richColors />
