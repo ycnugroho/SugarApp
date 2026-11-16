@@ -23,8 +23,10 @@ Browser limitation: full-screen QRIS uses a white background; websites cannot fo
 - [x] Simplified stock labels; retain report/waste corrections and main-filter trends
 - [x] Remove manual exports/resets; Google Sheets settings and durable sequential offline queue
 - [x] 76 rule tests and browser verification, including offline/reconnect and all record corrections
-- [ ] Complete unified expense selection, conditional stock information and complete history/report details
-- [ ] Verify automatic and manual Sheets routing with exact ID-first schemas
-- [ ] Apply the supplied default webhook without overwriting a saved custom URL
-- [ ] Release manifest-only mobile installation with cow-calculator icons and matching head metadata
-- [ ] Confirm rows in owner's live Google Sheet — requires deployed Apps Script URL and access to the destination sheet; browser dispatch tested with intercepted responses only
+- [x] Complete unified expense selection, conditional stock information and complete history/report details
+- [x] Verify automatic and manual Sheets routing with exact ID-first schemas; receiver tested for all three tabs
+- [x] Apply the supplied default webhook without overwriting a saved custom URL
+- [x] Prepare manifest-only mobile installation with verified cow-calculator icons and matching generated HTML head metadata
+- [x] Pass 91 tests and browser verification of stock/operational expenses, report details, reload persistence, default webhook and manual dispatch at desktop and 360px mobile width
+- [ ] Confirm rows in owner's live Google Sheet — supplied webhook configured, but destination spreadsheet access is unavailable; browser dispatch verified with intercepted responses, not confirmed provider receipt
+- [ ] Publish and verify home-screen launch on Android/iOS — requires publication and a real mobile device
